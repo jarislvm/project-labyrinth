@@ -1,13 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://byruro2cdi6ke"]
 
+[ext_resource type="Script" path="res://MainMenu.cs" id="1_3v80p"]
 [ext_resource type="Texture2D" uid="uid://bwr2i1hs33s7m" path="res://934002.jpg" id="1_4kv6n"]
 [ext_resource type="Texture2D" uid="uid://dci54uwgrmjy3" path="res://Blues Brothers.jpg" id="1_o722n"]
 [ext_resource type="FontFile" uid="uid://bth6equ2hgd7j" path="res://DragonForcE.ttf" id="2_2vt7j"]
-[ext_resource type="Script" path="res://QuitButton.cs" id="3_d1yfp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uccsx"]
 
 [node name="MainMenu" type="Node"]
+script = ExtResource("1_3v80p")
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -58,7 +59,6 @@ text = "Options"
 [node name="QuitButton" type="Button" parent="VSplitContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit Game"
-script = ExtResource("3_d1yfp")
 
 [node name="BluesBois" type="TextureRect" parent="."]
 anchors_preset = 2
@@ -73,4 +73,5 @@ texture = ExtResource("1_o722n")
 expand_mode = 1
 stretch_mode = 4
 
-[connection signal="pressed" from="VSplitContainer/VBoxContainer/QuitButton" to="VSplitContainer/VBoxContainer/QuitButton" method="_on_pressed"]
+[connection signal="pressed" from="VSplitContainer/VBoxContainer/StartButton" to="." method="StartGame"]
+[connection signal="pressed" from="VSplitContainer/VBoxContainer/QuitButton" to="." method="ExitGame"]
