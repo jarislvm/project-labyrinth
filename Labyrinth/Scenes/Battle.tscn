@@ -1,10 +1,11 @@
-[gd_scene load_steps=48 format=3 uid="uid://b5h8ashtqa1eq"]
+[gd_scene load_steps=49 format=3 uid="uid://b5h8ashtqa1eq"]
 
 [ext_resource type="Script" path="res://BattleScene.cs" id="1_1gmxa"]
+[ext_resource type="Texture2D" uid="uid://dtbuthkdo65rl" path="res://cave stage.webp" id="2_nwgja"]
 [ext_resource type="Texture2D" uid="uid://0bfvvhm058pc" path="res://kobold_attack.png" id="2_pp3c6"]
-[ext_resource type="Texture2D" uid="uid://bqn8x4bx2xbn8" path="res://cartoon bg.webp" id="2_q6pe5"]
 [ext_resource type="Texture2D" uid="uid://ce8ksg5a43kdi" path="res://kobold_idle.png" id="3_v8a4o"]
 [ext_resource type="Texture2D" uid="uid://cc5ewcgrypn0q" path="res://KG_attack.png" id="4_oc6j8"]
+[ext_resource type="Script" path="res://Scenes/Enemy.cs" id="5_25sj6"]
 [ext_resource type="Texture2D" uid="uid://chb5f4symef5q" path="res://KG_idle.png" id="5_d4mbl"]
 [ext_resource type="Texture2D" uid="uid://mmpkua7nr0u" path="res://Wizard_Attack2.png" id="6_m5a0q"]
 [ext_resource type="Texture2D" uid="uid://bjnpnfx1ltyl6" path="res://Wizard_Idle.png" id="7_uam7i"]
@@ -73,9 +74,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2q4to")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -98,7 +99,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p8gvg"]
@@ -162,9 +163,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u1ma8")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -181,7 +182,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ichj"]
@@ -267,9 +268,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5d5bh")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -292,18 +293,18 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="BattleScene" type="Node2D"]
 script = ExtResource("1_1gmxa")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-offset_left = -1.0
-offset_top = 5.0
-offset_right = 1196.0
-offset_bottom = 689.0
-texture = ExtResource("2_q6pe5")
+offset_left = -124.0
+offset_top = -173.0
+offset_right = 1311.0
+offset_bottom = 682.0
+texture = ExtResource("2_nwgja")
 expand_mode = 1
 
 [node name="MainMenuButton" type="Button" parent="."]
@@ -339,30 +340,30 @@ expand_mode = 2
 
 [node name="Enemy1" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(613, 395)
+position = Vector2(573, 415)
 scale = Vector2(1.81757, 1.72917)
 sprite_frames = SubResource("SpriteFrames_lcmxh")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.320321
+script = ExtResource("5_25sj6")
 
 [node name="Enemy2" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(803, 403)
-scale = Vector2(1.73836, 2.00488)
+position = Vector2(783, 422)
+scale = Vector2(2.04918, 1.89306)
 sprite_frames = SubResource("SpriteFrames_naahl")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.0467865
+script = ExtResource("5_25sj6")
 
 [node name="Enemy3" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(962, 377)
+position = Vector2(1006, 363)
 scale = Vector2(1.64989, 1.83684)
 sprite_frames = SubResource("SpriteFrames_jpwir")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.548107
+script = ExtResource("5_25sj6")
 
 [connection signal="pressed" from="MainMenuButton" to="." method="ReturnToMain"]
 [connection signal="pressed" from="DrawCardButton" to="." method="DrawCard"]
