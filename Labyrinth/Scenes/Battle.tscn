@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://b5h8ashtqa1eq"]
 
-[ext_resource type="Script" path="res://BattleScene.cs" id="1_1gmxa"]
+[ext_resource type="Script" path="res://Scenes/BattleScene.cs" id="1_wdojn"]
 
 [node name="BattleScene" type="Node2D"]
-script = ExtResource("1_1gmxa")
+script = ExtResource("1_wdojn")
 
 [node name="MainMenuButton" type="Button" parent="."]
 offset_left = 1016.0

@@ -7,7 +7,7 @@ namespace Core.CardEngine
 {
     public class Deck : ICardPile
     {
-        public List<Card> Cards { get; } = new List<Card>();
+        public List<Card> Cards { get; } = new();
 
         public Card Draw()
         {
