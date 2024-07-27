@@ -1,6 +1,6 @@
 [gd_scene load_steps=44 format=3 uid="uid://b5h8ashtqa1eq"]
 
-[ext_resource type="Script" path="res://BattleScene.cs" id="1_1gmxa"]
+[ext_resource type="Script" path="res://Scenes/BattleScene.cs" id="1_wdojn"]
 [ext_resource type="Texture2D" uid="uid://dtbuthkdo65rl" path="res://cave stage.webp" id="2_nwgja"]
 [ext_resource type="Texture2D" uid="uid://0bfvvhm058pc" path="res://kobold_attack.png" id="2_pp3c6"]
 [ext_resource type="Texture2D" uid="uid://ce8ksg5a43kdi" path="res://kobold_idle.png" id="3_v8a4o"]
@@ -274,7 +274,7 @@ animations = [{
 }]
 
 [node name="BattleScene" type="Node2D"]
-script = ExtResource("1_1gmxa")
+script = ExtResource("1_wdojn")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 offset_left = -74.0

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using Constants;
 using Core;
 using Core.CardEngine;
@@ -30,6 +29,7 @@ public partial class BattleScene : Node2D
 
 	private Deck DrawPile = new Deck();
 	private Deck DiscardPile = new Deck();
+	private Hand Hand = new Hand();
 
 	public void ReturnToMain()
 	{
@@ -46,6 +46,7 @@ public partial class BattleScene : Node2D
 		}
 		else
 		{
+			Hand.Cards.Append(card);
 			currentCardName.Text = card.Name;
 			DiscardPile.AddCardAtIndex(card, 0);
 		}

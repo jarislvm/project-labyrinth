@@ -6,5 +6,6 @@ namespace Core.CardEngine
     {
         public string Name { get; set; }
         public Image Image { get; set; }
+        public string Text { get; set; }
     }   
 }
