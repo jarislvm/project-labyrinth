@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "command": "C:\\Game Engines\\Godot_v4.2.2-stable_mono_win64\\Godot_v4.2.2-stable_mono_win64.exe",
+      "type": "process",
+      "args": ["--build-solutions", "--path", "${workspaceRoot}", "--headless"],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "type": "dotnet",
+      "task": "build",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "dotnet: build"
+    }
+  ]
+}
