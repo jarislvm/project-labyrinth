@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://b5h8ashtqa1eq"]
+[gd_scene load_steps=45 format=3 uid="uid://b5h8ashtqa1eq"]
 
 [ext_resource type="Script" path="res://Scenes/BattleScene.cs" id="1_wdojn"]
 [ext_resource type="Texture2D" uid="uid://dtbuthkdo65rl" path="res://cave stage.webp" id="2_nwgja"]
@@ -7,8 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cc5ewcgrypn0q" path="res://KG_attack.png" id="4_oc6j8"]
 [ext_resource type="Script" path="res://Scenes/Enemy.cs" id="5_25sj6"]
 [ext_resource type="Texture2D" uid="uid://chb5f4symef5q" path="res://KG_idle.png" id="5_d4mbl"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_icmvs"]
+[ext_resource type="PackedScene" uid="uid://cup72qs38koir" path="res://Scenes/SubScenes/Hand.tscn" id="8_rceqx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_43s5a"]
 atlas = ExtResource("2_pp3c6")
@@ -273,74 +272,102 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="BattleScene" type="Node2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_icmvs"]
+
+[node name="BattleScene" type="Node"]
 script = ExtResource("1_wdojn")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
-offset_left = -74.0
-offset_top = -159.0
-offset_right = 1361.0
-offset_bottom = 696.0
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource("2_nwgja")
-expand_mode = 1
+expand_mode = 5
+stretch_mode = 5
 
-[node name="MainMenuButton" type="Button" parent="."]
-offset_left = 1016.0
-offset_top = 11.0
-offset_right = 1139.0
-offset_bottom = 62.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer2"]
+layout_direction = 3
+layout_mode = 2
+
+[node name="MainMenuButton" type="Button" parent="MarginContainer/VBoxContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
 text = "Return to Main"
 
-[node name="CardNameLabel" type="RichTextLabel" parent="."]
-z_index = 1
-offset_left = 44.0
-offset_top = 407.0
-offset_right = 265.0
-offset_bottom = 448.0
-text = "No card drawn yet."
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.3
 
-[node name="DrawCardButton" type="Button" parent="."]
+[node name="Enemy1" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer2/HBoxContainer2"]
 z_index = 1
-material = SubResource("ShaderMaterial_icmvs")
-offset_left = 29.0
-offset_top = 437.0
-offset_right = 188.0
-offset_bottom = 508.0
-text = "Draw!"
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 10.0
-offset_top = 135.0
-offset_right = 50.0
-offset_bottom = 175.0
-expand_mode = 2
-
-[node name="Enemy1" type="AnimatedSprite2D" parent="."]
-z_index = 1
-position = Vector2(709, 421)
+position = Vector2(665.5, 203.168)
 scale = Vector2(1.81757, 1.72917)
 sprite_frames = SubResource("SpriteFrames_lcmxh")
 animation = &"attack"
 autoplay = "idle"
 script = ExtResource("5_25sj6")
 
-[node name="Enemy3" type="AnimatedSprite2D" parent="."]
+[node name="Enemy3" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer2/HBoxContainer2"]
 z_index = 1
-position = Vector2(1025, 417)
+position = Vector2(981.5, 199.168)
 scale = Vector2(2.04918, 1.89306)
 sprite_frames = SubResource("SpriteFrames_naahl")
 animation = &"idle"
 autoplay = "idle"
 script = ExtResource("5_25sj6")
 
-[node name="Enemy2" type="AnimatedSprite2D" parent="."]
+[node name="Enemy2" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer2/HBoxContainer2"]
 z_index = 1
-position = Vector2(840, 408)
+position = Vector2(796.5, 190.168)
 scale = Vector2(1.64989, 1.83684)
 sprite_frames = SubResource("SpriteFrames_jpwir")
 animation = &"idle"
 autoplay = "idle"
 script = ExtResource("5_25sj6")
 
-[connection signal="pressed" from="MainMenuButton" to="." method="ReturnToMain"]
-[connection signal="pressed" from="DrawCardButton" to="." method="DrawCard"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DrawCardButton" type="Button" parent="MarginContainer/VBoxContainer2/HBoxContainer3/HBoxContainer"]
+z_index = 1
+material = SubResource("ShaderMaterial_icmvs")
+layout_mode = 2
+text = "Draw!"
+
+[node name="CardNameLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer2/HBoxContainer3/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+text = "No card drawn yet."
+fit_content = true
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer2/HBoxContainer3"]
+self_modulate = Color(0.156863, 0.156863, 0.156863, 0.705882)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 8.83
+
+[node name="Hand" parent="MarginContainer/VBoxContainer2/HBoxContainer3/PanelContainer" instance=ExtResource("8_rceqx")]
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/HBoxContainer/MainMenuButton" to="." method="ReturnToMain"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/HBoxContainer3/HBoxContainer/DrawCardButton" to="." method="DrawCard"]

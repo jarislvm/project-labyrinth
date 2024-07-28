@@ -20,7 +20,7 @@ texture = ExtResource("1_4kv6n")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="VSplitContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -28,8 +28,25 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="Title" type="Label" parent="VSplitContainer"]
+[node name="BluesBois" type="TextureRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 125)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("1_o722n")
+expand_mode = 1
+
+[node name="VSplitContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="MarginContainer/VSplitContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.678431, 0.678431, 0.678431, 1)
@@ -43,35 +60,22 @@ text = "The Secrets of the Labyrinth"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VSplitContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
-[node name="StartButton" type="Button" parent="VSplitContainer/VBoxContainer"]
+[node name="StartButton" type="Button" parent="MarginContainer/VSplitContainer/VBoxContainer"]
 layout_mode = 2
 text = "Start"
 
-[node name="OptionsButton" type="Button" parent="VSplitContainer/VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="MarginContainer/VSplitContainer/VBoxContainer"]
 layout_mode = 2
 text = "Options"
 
-[node name="QuitButton" type="Button" parent="VSplitContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="MarginContainer/VSplitContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit Game"
 
-[node name="BluesBois" type="TextureRect" parent="."]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = -102.0
-offset_right = 103.0
-offset_bottom = -9.0
-grow_vertical = 0
-texture = ExtResource("1_o722n")
-expand_mode = 1
-stretch_mode = 4
-
-[connection signal="pressed" from="VSplitContainer/VBoxContainer/StartButton" to="." method="StartGame"]
-[connection signal="pressed" from="VSplitContainer/VBoxContainer/QuitButton" to="." method="ExitGame"]
+[connection signal="pressed" from="MarginContainer/VSplitContainer/VBoxContainer/StartButton" to="." method="StartGame"]
+[connection signal="pressed" from="MarginContainer/VSplitContainer/VBoxContainer/QuitButton" to="." method="ExitGame"]

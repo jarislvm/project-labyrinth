@@ -5,7 +5,10 @@ using Core;
 using Core.CardEngine;
 using Godot;
 
-public partial class BattleScene : Node2D
+/// <summary>
+/// This class should handle all UI work for the battle scene, logic for cards, enemies, etc should be abstracted into CoreBattleContext.cs
+/// </summary>
+public partial class BattleScene : Node
 {
 	public override void _Ready()
 	{
@@ -21,15 +24,16 @@ public partial class BattleScene : Node2D
 			new Card { Name = "Card9" },
 			new Card { Name = "Card10" },
 		});
-		currentCardName = (RichTextLabel)FindChild("CardNameLabel", false, true);
+		currentCardName = (RichTextLabel)FindChild("CardNameLabel", true, true);
+		_hand = (Hand)FindChild("Hand");
 		base._Ready();
 	}
 
 	private RichTextLabel currentCardName;
+	private Hand _hand;
 
 	private Deck DrawPile = new Deck();
 	private Deck DiscardPile = new Deck();
-	private Hand Hand = new Hand();
 
 	public void ReturnToMain()
 	{
@@ -46,7 +50,7 @@ public partial class BattleScene : Node2D
 		}
 		else
 		{
-			Hand.Cards.Append(card);
+			_hand.AddCardToHand(card);
 			currentCardName.Text = card.Name;
 			DiscardPile.AddCardAtIndex(card, 0);
 		}
