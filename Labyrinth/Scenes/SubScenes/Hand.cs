@@ -4,17 +4,18 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public partial class Hand : Node
+public partial class Hand : Area2D
 {
 	public override void _Ready()
 	{
-		_cardContainer = GetChild(0).GetChild<CenterContainer>(0);
+		var test = GetChildren();
+		_cardContainer = GetChild<CollisionShape2D>(0);
 		base._Ready();
 	}
 
 	public List<CardDisplayInfo> CardsInHand { get; } = new();
 	public int Count => CardsInHand.Count;
-	private CenterContainer _cardContainer;
+	private CollisionShape2D _cardContainer;
 
 	public void AddCardToHand(Card card)
 	{

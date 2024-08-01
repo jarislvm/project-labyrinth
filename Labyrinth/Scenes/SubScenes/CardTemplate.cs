@@ -2,7 +2,7 @@ using Core.CardEngine;
 using Godot;
 using System;
 
-public partial class CardTemplate : Control
+public partial class CardTemplate : Area2D
 {
 	public Vector2 CardSize { get; } = new(150,240);
 
@@ -11,7 +11,7 @@ public partial class CardTemplate : Control
 
 	public override void _Ready()
 	{
-		SetAnchorsPreset(LayoutPreset.TopLeft);
+		//SetAnchorsPreset(LayoutPreset.TopLeft);
 		base._Ready();
 	}
 

@@ -1,29 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cup72qs38koir"]
+[gd_scene load_steps=3 format=3 uid="uid://cup72qs38koir"]
 
 [ext_resource type="Script" path="res://Scenes/SubScenes/Hand.cs" id="1_sf5af"]
 
-[node name="Hand" type="Node"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yekv2"]
+size = Vector2(900, 150)
+
+[node name="Hand" type="Area2D"]
 script = ExtResource("1_sf5af")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(900, 240)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1020.0
-offset_bottom = -840.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.619763, 0.998834, 1, 1)
-
-[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
-self_modulate = Color(0, 0.775814, 0.777484, 1)
-custom_minimum_size = Vector2(900, 240)
-layout_direction = 2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+self_modulate = Color(0.129558, 0.129558, 0.129558, 1)
+shape = SubResource("RectangleShape2D_yekv2")
