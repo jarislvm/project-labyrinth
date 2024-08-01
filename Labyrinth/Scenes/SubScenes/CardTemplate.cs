@@ -26,6 +26,7 @@ public partial class CardTemplate : Area2D
 
 		Card = card;
 		_namePlate.Text = Card.Name;
+		// this won't work on export, need to rework
 		var image = Image.LoadFromFile(card.ImagePath);
 		_image.Texture = ImageTexture.CreateFromImage(image);
 		_textPlate.Text = Card.Text;
