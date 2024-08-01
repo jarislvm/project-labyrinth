@@ -17,7 +17,7 @@ offset_left = -75.0
 offset_top = -120.0
 offset_right = 75.0
 offset_bottom = 120.0
-color = Color(0.968627, 0.945098, 0.941176, 1)
+color = Color(0.0062628, 0, 0.391279, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="CollisionShape2D/ColorRect"]
 layout_mode = 0
@@ -32,8 +32,50 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 
 [node name="CardNameLabel" type="RichTextLabel" parent="CollisionShape2D/ColorRect/MarginContainer/VBoxContainer"]
+self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Placeholder"
 fit_content = true
 shortcut_keys_enabled = false
+
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D/ColorRect/MarginContainer/VBoxContainer/CardNameLabel"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="CardImage" type="TextureRect" parent="CollisionShape2D/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D/ColorRect/MarginContainer/VBoxContainer/CardImage"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="CardText" type="RichTextLabel" parent="CollisionShape2D/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D/ColorRect/MarginContainer/VBoxContainer/CardText"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4

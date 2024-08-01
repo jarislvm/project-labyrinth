@@ -8,7 +8,6 @@ public partial class Hand : Area2D
 {
 	public override void _Ready()
 	{
-		var test = GetChildren();
 		_cardContainer = GetChild<CollisionShape2D>(0);
 		base._Ready();
 	}

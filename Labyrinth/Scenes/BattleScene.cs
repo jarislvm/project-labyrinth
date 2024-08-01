@@ -13,16 +13,16 @@ public partial class BattleScene : Node
 	public override void _Ready()
 	{
 		DrawPile.AddCardsAndShuffle(new List<Card>{
-			new Card { Name = "Card1" },
-			new Card { Name = "Card2" },
-			new Card { Name = "Card3" },
-			new Card { Name = "Card4" },
-			new Card { Name = "Card5" },
-			new Card { Name = "Card6" },
-			new Card { Name = "Card7" },
-			new Card { Name = "Card8" },
-			new Card { Name = "Card9" },
-			new Card { Name = "Card10" },
+			new Card { Name = "Attack 1", ImagePath = "res://Resources/CardResources/sword_03c.png", Text = "Deal 1 Damage" },
+			new Card { Name = "Attack 2", ImagePath = "res://Resources/CardResources/sword_03c.png", Text = "Deal 2 Damage"  },
+			new Card { Name = "Attack 3", ImagePath = "res://Resources/CardResources/sword_03c.png", Text = "Deal 3 Damage"  },
+			new Card { Name = "Attack 4", ImagePath = "res://Resources/CardResources/sword_03c.png", Text = "Deal 4 Damage"  },
+			new Card { Name = "Attack 5", ImagePath = "res://Resources/CardResources/sword_03c.png", Text = "Deal 5 Damage"  },
+			new Card { Name = "Block 1", ImagePath = "res://Resources/CardResources/shield_03c.png", Text = "Block 1 Damage"  },
+			new Card { Name = "Block 2", ImagePath = "res://Resources/CardResources/shield_03c.png", Text = "Block 1 Damage"  },
+			new Card { Name = "Block 3", ImagePath = "res://Resources/CardResources/shield_03c.png", Text = "Block 1 Damage"  },
+			new Card { Name = "Block 4", ImagePath = "res://Resources/CardResources/shield_03c.png", Text = "Block 1 Damage"  },
+			new Card { Name = "Block 5", ImagePath = "res://Resources/CardResources/shield_03c.png", Text = "Block 1 Damage"  },
 		});
 		currentCardName = (RichTextLabel)FindChild("CardNameLabel", true, true);
 		_hand = (Hand)FindChild("Hand");
